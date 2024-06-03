@@ -6,13 +6,81 @@
 //
 
 import SwiftUI
+import MusicKit
 
-struct MainMusicView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+enum MusicViewShown {
+    case albums
+    case artists
+    case playlists
+    case songs
+    
 }
 
-#Preview {
-    MainMusicView()
+
+
+private enum FocusedField {
+    case searchBar
+}
+
+struct MainMusicView: View {
+    @Binding var musicViewShown: MusicViewShown
+    
+    @Environment(\.colorScheme) var colorScheme
+    @FocusState private var focusedField: FocusedField?
+    
+    @EnvironmentObject var x: X
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                
+                
+                Picker("", selection: $musicViewShown) {
+                    
+                    Text("Albums")
+                        .tag(MusicViewShown.albums)
+                        
+                    
+                    Text("Artists")
+                        .tag(MusicViewShown.artists)
+                    
+                    Text("Playlists")
+                        .tag(MusicViewShown.playlists)
+                    
+                    Text("Songs")
+                        .tag(MusicViewShown.songs)
+                    
+                    
+                    
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                
+//                switch musicViewShown {
+//                case .albums:
+//                    AlbumsView()
+//                case .artists:
+//                    ArtistsView()
+//                case .playlists:
+//                    PlaylistsView()
+//                case .songs:
+//                    SongsView()
+//                }
+                    
+                Spacer()
+                
+            }
+            .navigationTitle("Simplified") // x.loadedSong?.title ?? "Simplified"
+            .navigationBarTitleDisplayMode(.large)
+//            .onAppear {
+//                if x.reloadLibrary {
+//                    x.appOpenActions()
+//                }
+//            }
+        }
+    }
+    
+    
+    
+    
 }

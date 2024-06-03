@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
+
+struct User: Identifiable, Hashable, Codable {
+    let id: String
+    var email: String
+}

@@ -6,19 +6,25 @@
 //
 
 import SwiftUI
+import MusicKit
 
 struct ContentView: View {
+    @State private var status = MusicAuthorization.currentStatus
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if status == .authorized {
+            OpeningViewController()
+//                .tint(Color(.systemPink))
+                .tint(CustomColor.tint)
+        } else {
+            SimplifiedDirections()
+//                .tint(Color(.systemPink))
+                .tint(CustomColor.tint)
         }
-        .padding()
+
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ExplicitTag: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: "e.square.fill")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 10)
+//            .foregroundStyle(Color(.systemPink))
+            .foregroundStyle(CustomColor.tint)
     }
 }
 

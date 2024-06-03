@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ErrorText {
+    static let emailAlreadyUsed: String = "Error: The email address is already in use by another account."
+}

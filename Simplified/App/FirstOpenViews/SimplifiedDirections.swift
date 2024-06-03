@@ -47,9 +47,14 @@ struct SimplifiedDirections: View {
                     .padding(.top)
                     
                     
-                    Link("Create Apple Music Account", destination: URL(string: "https://music.apple.com/us/browse")!)
-                        .foregroundStyle(Color(.systemPink))
-                        .padding(.top, 40)
+                    HStack {
+                        Link("Create Apple Music Account", destination: URL(string: "https://music.apple.com/us/browse")!)
+                        
+                        Image(systemName: "link")
+                    }
+//                    .foregroundStyle(Color(.systemPink))
+                    .foregroundStyle(CustomColor.tint)
+                    .padding(.top, 40)
                     
     
                 }
@@ -59,7 +64,7 @@ struct SimplifiedDirections: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
-                        
+                        SimplifiedAllowAccess()
                     } label: {
                         Text("Next")
                             .foregroundStyle(colorScheme == .dark ? .white : .black)
